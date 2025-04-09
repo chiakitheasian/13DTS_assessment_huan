@@ -10,7 +10,9 @@ def render_homepage():  # put application's code here
 def render_menu():
     return render_template('menu.html')
 
-
+@app.route('/login', methods = ['POST', 'GET'])
+def render_login_page():
+    return render_template('login.html')
 
 if __name__ == '__main__':
     app.run()
