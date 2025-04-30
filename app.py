@@ -10,6 +10,11 @@ def render_menu():
 
     return render_template('menu.html')
 
+@app.route('/contact')
+def render_contact():
+
+    return render_template('contact.html')
+
 @app.route('/login', methods = ['POST', 'GET'])
 def render_login_page():
     return render_template('login.html')
@@ -21,6 +26,14 @@ def render_signup_page():
         lname = request.form.get(user_lname).title().strip()
         email = request.form.get(user_email).title().strip()
         password = reques.form.get(user_password)
+        password2 = request.form.get(user_password2)
+
+        if password != password2:
+            return redirect("\signup?error=passwords+do+not+match")
+
+        if len(password) < 8:
+            return redirect("\signup?error=passwords+must+contain+more+than+8+charcters")
+
     return render_template('signup.html')
 
 if __name__ == '__main__':
