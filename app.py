@@ -7,6 +7,7 @@ def render_homepage():  # put application's code here
 
 @app.route('/menu')
 def render_menu():
+
     return render_template('menu.html')
 
 @app.route('/login', methods = ['POST', 'GET'])
