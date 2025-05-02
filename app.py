@@ -1,4 +1,5 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, redirect
+
 app = Flask(__name__)
 
 @app.route('/')
@@ -22,18 +23,17 @@ def render_login_page():
 @app.route('/signup', methods = ['POST', 'GET'])
 def render_signup_page():
     if request.method == 'POST':
-        fname = request.form.get(user_fname).title().strip()
-        lname = request.form.get(user_lname).title().strip()
-        email = request.form.get(user_email).title().strip()
-        password = reques.form.get(user_password)
-        password2 = request.form.get(user_password2)
+        fname = request.form.form.get('user_fname').title().strip
+        lname = request.form.form.get('user_lname').title().strip
+        email = request.form.form.get('user_email').lower().strip
+        password = request.form.form.get('user_password')
+        password2 = request.form.form.get('user_password2')
 
         if password != password2:
-            return redirect("\signup?error=passwords+do+not+match")
+            return redirect("\signup?error=passwors+do+not+match")
 
         if len(password) < 8:
-            return redirect("\signup?error=passwords+must+contain+more+than+8+charcters")
-
+            return redirect("\signup?error=password+must+be+more+than+8+characters")
     return render_template('signup.html')
 
 if __name__ == '__main__':
