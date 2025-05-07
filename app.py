@@ -58,7 +58,7 @@ def render_signup_page():
             return redirect("\signup?error=password+must+be+more+than+8+characters")
 
        #con = connect_database(DATABASE)
-       #query_insert = "INSERT INTO user (first_name, last_name,email,password
+       #query_insert = "INSERT INTO user (first_name, last_name,email,password hh
     return render_template('signup.html')
 
 
