@@ -132,7 +132,7 @@ a, a:visited {
     text-align: right;
 }
 
-.myform {
+.my form {
     width: 80%;
     margin: auto;
     padding-top: 3rem;
@@ -201,4 +201,19 @@ table {
     .product-box {
         width: 100%;
     }
+}
+
+.navbar-links a {
+    display: inline-block;
+    margin: 0 10px;
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.navbar-links a:hover {
+    transform: scale(1.2);
+    color: white; /*This is the addition css i wanted to add, which makes the stuff on the navigation bar kind of pop when hovering over it
+
 }

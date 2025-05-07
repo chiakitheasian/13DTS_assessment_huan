@@ -33,7 +33,6 @@ def render_menu():
     except Exception as e:
         return f"<h1>Error</h1><p>{e}</p>"
 
-
 @app.route('/contact')
 def render_contact():
 
@@ -57,7 +56,12 @@ def render_signup_page():
 
         if len(password) < 8:
             return redirect("\signup?error=password+must+be+more+than+8+characters")
+
+       #con = connect_database(DATABASE)
+       #query_insert = "INSERT INTO user (first_name, last_name,email,password
     return render_template('signup.html')
+
+
 
 if __name__ == '__main__':
     app.run()
