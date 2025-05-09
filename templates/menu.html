@@ -16,5 +16,18 @@ Journal Entries
     {% else %}
     <p>No journal entries yet.</p>
     {% endfor %}
+     <button class="add-entry-btn" onclick="toggleForm()">＋ Add Entry</button>
+
+  <div id="entryForm" style="display: none;">
+    <form method="POST" action="/submit" class="entry-form">
+      <input type="date" name="entry_date" required>
+      <input type="text" name="mood" placeholder="Mood" required>
+      <input type="number" name="confidence_rating" placeholder="Confidence" required>
+      <input type="text" name="health_activities" placeholder="Health Activities" required>
+      <textarea name="entry_text" placeholder="Write your entry..." required></textarea>
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+</div>
 </div>
 {% endblock %}

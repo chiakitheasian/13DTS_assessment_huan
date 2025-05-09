@@ -214,6 +214,34 @@ table {
 
 .navbar-links a:hover {
     transform: scale(1.2);
-    color: white; /*This is the addition css i wanted to add, which makes the stuff on the navigation bar kind of pop when hovering over it
+    color: white; /*This is the addition css i wanted to add, which makes the stuff on the navigation bar kind of pop when hovering over it*/
 
+}
+
+.entry-box {
+  background: #fff;
+  border-radius: 10px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+
+.add-entry-btn {
+  background-color: #145374;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  font-size: 1.2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  margin: 1rem 0;
+}
+
+.entry-form {
+  background-color: #f8f8f8;
+  padding: 1rem;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
 }
