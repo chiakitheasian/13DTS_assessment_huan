@@ -43,6 +43,20 @@ def render_contact():
 
 @app.route('/login', methods = ['POST', 'GET'])
 def render_login_page():
+    if request.method == 'POST':
+        email = request.form['email'].strip().lower()
+        password = request.form['password']
+
+        query ="SELECT user_id, first_name, password FROM user WHERE email = ?"
+        con = connect_database(DATABASE)
+        cur = con.cursor()
+        cur.execute(query, (email,))
+        user_info = cur.fetchall()
+        print(user_info)
+        cur.close()
+        try:
+            user_id = user_info
+
     return render_template('login.html')
 
 @app.route('/signup', methods = ['POST', 'GET'])
