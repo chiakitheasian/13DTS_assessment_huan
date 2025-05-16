@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, session
 import sqlite3
 from sqlite3 import Error
 from flask_bcrypt import Bcrypt
@@ -51,11 +51,24 @@ def render_login_page():
         con = connect_database(DATABASE)
         cur = con.cursor()
         cur.execute(query, (email,))
-        user_info = cur.fetchall()
+        user_info = cur.fetchone()
         print(user_info)
         cur.close()
         try:
-            user_id = user_info
+            user_id = user_info[0]
+            first_name = user_info[1]
+            user_password = user_info[2]
+        except IndexError:
+            return redirect("/login?error=email+or+password+is+Invalid")
+
+        if not bcrypt.check_password_hash(user_password, password):
+            return redirect("/login?error=email+or+password+is+Invalid")
+
+        session['email'] = email
+        session['user_id'] = user_id
+        session['first_name'] = first_name
+        print(session)
+        return redirect("/")
 
     return render_template('login.html')
 
